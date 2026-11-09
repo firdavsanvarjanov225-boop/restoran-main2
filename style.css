@@ -1,0 +1,312 @@
+/* ==========================================================
+   Food Lover — кастомные стили поверх Bootstrap 5.
+   Здесь только то, чего нет в Bootstrap: цвета бренда,
+   фоновые картинки и состояния, которыми управляет JS.
+   ========================================================== */
+
+:root {
+	--gold: #e4b95b;
+	--slate: #383848;
+	--cream: #f4f2ed;
+	--bs-body-font-family: 'Quicksand', sans-serif;
+}
+
+/* ---------- Цвета бренда ---------- */
+.primary-text { color: var(--gold); }
+.text-slate { color: var(--slate); }
+.bg-slate { background-color: var(--slate); }
+.bg-cream { background-color: var(--cream); }
+
+/* ---------- Кнопки (подкраска Bootstrap-кнопок) ---------- */
+.btn-dark {
+	--bs-btn-bg: var(--slate);
+	--bs-btn-border-color: #fff;
+	--bs-btn-hover-bg: #000;
+	--bs-btn-hover-border-color: #fff;
+	--bs-btn-active-bg: #000;
+	letter-spacing: 1px;
+}
+
+.btn-black {
+	--bs-btn-color: #fff;
+	--bs-btn-bg: #000;
+	--bs-btn-border-color: #fff;
+	--bs-btn-hover-color: #fff;
+	--bs-btn-hover-bg: var(--slate);
+	--bs-btn-hover-border-color: #fff;
+	--bs-btn-active-color: #fff;
+	--bs-btn-active-bg: #3c3b6e;
+	--bs-btn-active-border-color: #fff;
+	letter-spacing: 1px;
+}
+
+.btn-warning {
+	--bs-btn-color: #fff;
+	--bs-btn-bg: var(--gold);
+	--bs-btn-border-color: var(--gold);
+	--bs-btn-hover-color: #fff;
+	--bs-btn-hover-bg: var(--slate);
+	--bs-btn-hover-border-color: var(--slate);
+	--bs-btn-active-color: #fff;
+	--bs-btn-active-bg: var(--slate);
+	--bs-btn-active-border-color: var(--slate);
+}
+
+/* ---------- Header ---------- */
+.hero {
+	background: url('./img/home_bg.jpeg') center center/cover no-repeat;
+}
+
+.hero::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.hero h1 {
+	font-size: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+#navbar .nav-link {
+	color: #fff;
+	border-bottom: 2px solid transparent;
+}
+
+#navbar .nav-link:hover {
+	border-bottom-color: var(--gold);
+}
+
+@media (max-width: 991.98px) {
+	#navbar .navbar-collapse {
+		background: rgba(0, 0, 0, 0.7);
+		border-radius: 0.5rem;
+		margin-top: 0.5rem;
+		padding: 0.5rem 1rem;
+	}
+}
+
+/* ---------- About: вкладки (классы переключает js/modules/tabs.js) ---------- */
+.tabheader__items {
+	background-color: #9a9a9a;
+	width: fit-content;
+}
+
+.tabheader__item {
+	background-color: var(--gold);
+	padding: 12px 24px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.tabheader__item.tabheader__item_active {
+	background-color: var(--slate);
+	color: #fff;
+	font-weight: bold;
+}
+
+/* ---------- Offers (карточки рисует js/modules/class.js) ---------- */
+#offers {
+	min-height: 80vh;
+	background: url('./img/offer-background.jpg') center center/cover fixed;
+}
+
+#offers .offers-items img {
+	width: 200px;
+	max-width: 100%;
+}
+
+#offers .offers-items h3 {
+	font-size: 25px;
+	margin: 15px 0;
+}
+
+#offers .offers-items p {
+	font-size: 14px;
+	padding: 0 20px;
+	font-weight: 300;
+	margin-bottom: 15px;
+}
+
+#offers .offers-items span {
+	font-weight: 600;
+	font-size: 18px;
+	margin-left: 5px;
+}
+
+/* ---------- Menu ---------- */
+.menu-item h3 {
+	color: var(--slate);
+	border-bottom: 1px dashed #c2bdbd;
+}
+
+/* ---------- Daytime ---------- */
+#daytime {
+	background: url('./img/daytime_bg.jpeg') center center/cover fixed no-repeat;
+}
+
+/* ---------- Gallery / слайдер (js/modules/slider.js) ---------- */
+#gallery {
+	background: url('./img/offer-background.jpg') center center/cover;
+}
+
+.offer__slide img {
+	height: 500px;
+	object-fit: cover;
+}
+
+@media (min-width: 992px) {
+	.offer__slide_description {
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+}
+
+.offer__slide_description .btn:hover {
+	background-color: #000;
+	transition: all 0.4s ease;
+}
+
+/* ---------- Contact / таймер ---------- */
+.promotion__timer .timer__block {
+	background: #938791;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+	font-size: 16px;
+	font-weight: 300;
+	border: 1px solid var(--gold);
+	padding: 20px;
+}
+
+.promotion__timer .timer__block span {
+	display: block;
+	font-size: 56px;
+	font-weight: 700;
+}
+
+@media (max-width: 575.98px) {
+	.promotion__timer .timer__block {
+		padding: 10px 4px;
+		font-size: 12px;
+	}
+
+	.promotion__timer .timer__block span {
+		font-size: 32px;
+	}
+}
+
+/* ---------- Модальное окно (js/modules/modal.js + forms.js) ---------- */
+.modal {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.show {
+	display: flex !important;
+}
+
+.modal__dialog {
+	width: 100%;
+	max-width: 500px;
+	margin: 40px auto;
+	padding: 0 12px;
+}
+
+.modal__content {
+	position: relative;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	max-height: 80vh;
+	overflow-y: auto;
+	display: flex;
+	justify-content: center;
+	padding: 20px 0;
+}
+
+.modal__content form {
+	width: 70%;
+}
+
+.modal__close {
+	position: absolute;
+	top: 8px;
+	right: 14px;
+	font-size: 30px;
+	color: #000;
+	opacity: 0.5;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.modal__title {
+	text-align: center;
+	font-size: 30px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.modal__input,
+.modal__input:focus {
+	background: var(--slate);
+	color: #fff;
+	text-align: center;
+	border: 1px solid #fff;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal__input::placeholder {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.modal_fade {
+	animation: modalFade 0.5s;
+}
+
+/* ---------- Служебные классы, которые ставит JS ---------- */
+.tab_content.show {
+	display: flex !important;
+}
+
+.hide {
+	display: none !important;
+}
+
+.fade {
+	animation: fade 1.5s;
+}
+
+@keyframes fade {
+	from { opacity: 0.1; }
+	to { opacity: 1; }
+}
+
+@keyframes modalFade {
+	from { transform: translateY(-100px); }
+	to { transform: translateY(0); }
+}
+
+/* ---------- Loader (js/modules/loader.js, forms.js) ---------- */
+.loader-wrapper {
+	position: fixed;
+	inset: 0;
+	z-index: 2000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #000;
+}
+
+.loader {
+	width: 48px;
+	height: 48px;
+	border: 5px solid #fff;
+	border-bottom-color: #ff3d00;
+	border-radius: 50%;
+	display: block;
+	margin: 0 auto;
+	animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}

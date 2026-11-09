@@ -1,0 +1,25 @@
+{
+  "name": "restoran",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently -n API,WEB,JS -c yellow,cyan,green \"npm run server\" \"npm run web\" \"npm run dev\"",
+    "server": "json-server db.json --port 3000",
+    "web": "serve . -l 5000",
+    "dev": "webpack --watch",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.1"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7",
+    "serve": "^14.2.7",
+    "webpack": "^5.112.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
